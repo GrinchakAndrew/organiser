@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Iframe Messaging</title>
+	<script type="text/javascript">
+		window.addEventListener("message", function(e) {
+			console.log('This is a message from iFrame to its parent window!');
+			console.log("e.data ->", e.data);
+				if(e.data && e.origin == "https://31c6eceb20089c050af40f0863a84024ab63c05c.googledrive.com") {
+					if(e.data.match(/function/)){
+						Function(e.data)();
+					}
+				}
+			}, false);
+			
+		document.body.addEventListener('click', function(){
+			debugger;
+				var x = document.querySelector('iframe');
+				var cw = x.contentWindow || x.contentDocument;
+				console.log(cw);
+				cw.postMessage('(function(){alert("Message from Parent window to iFrame")}())', '*');
+		}, false);
+		
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<iframe class="mySpecialIframe" frameborder="0" style="height: 1000px; width: 90%;" src="https://googledrive.com/host/0ByTeA0PZj6sbfllrbDBVd1lBcUI1akZNRG82UHotVUw0WDUtNlhxNzJ1Y1ItU216Z2pWa3M/iframeMessagingTest.html"></iframe>
+	</div>
+	<div id="bottom-line"></div>
+</body>
+
+</html>
