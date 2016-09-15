@@ -1,15 +1,12 @@
 body {
 	margin: 0;
 }
-
 body >.columniser-text{
 	margin: .3% 2.5% 23px;
 }
-
 .breadcrumb {
 	float: left;
 }
-
 .arrowshaft {
 	background-color : #6690BC;
 	padding-top: 1px;
@@ -24,8 +21,7 @@ body >.columniser-text{
 	cursor: pointer; 
 	color: #fff; 
 	float: left;
-}
-				
+}				
 #myDiv {
 	top: 0;
     position: static;
@@ -129,12 +125,10 @@ body >.columniser-text{
 .header {
 		width: 100%;	
 }
-
 .tabulator-wrapper {	
 	overflow: hidden;
 	width: 300px; 
 }
-
 .scrolling-left, .scrolling-right {
 	width: 15px;
 	height: 19px;
@@ -157,7 +151,6 @@ body >.columniser-text{
 	height: 19px;
 	display: inline-block;
 }
-
 .scrolling-left .arrow-left {
 	width: 0; 
 	height: 0; 
@@ -165,7 +158,6 @@ body >.columniser-text{
 	border-bottom: 10px solid transparent; 
 	border-right: 10px solid #C51F00;
 }
-
 .scrolling-right .arrow-right {
 	width: 0; 
 	height: 0; 
@@ -184,19 +176,15 @@ body >.columniser-text{
 	display: none;
 	
 }
-
 .tabs-li .tabulator-div span[style]{
 	white-space: nowrap;
 }
-
 .subParent .title:not(:first-child) span {
 	margin-left : 10px !important;
 }
-
 .details-body {
   width: 100% !important;
 }
-
 .header {
 	/* background-color: #F0F0F0; */
 	height: 4.5em;
@@ -212,7 +200,6 @@ body >.columniser-text{
 	font-size: 24px;
 	text-align: center;	
 }
-
 .arrow-head {
 	float: left; 
 	display: inline-block; 
@@ -240,7 +227,6 @@ body >.columniser-text{
 	margin-right: 5px;
 	vertical-align: middle;
 }
-
 .subparentarrowdownward {
 	width: 0;
 	height: 0;
@@ -251,30 +237,36 @@ body >.columniser-text{
 	margin-right: 5px;
 	vertical-align: middle;
 }
-
 .collapsible {
 	float: right;
 	font-size : 0.55em;
 	padding-top: 0.6em;
 }
-
-
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 		.tabulator-wrapper {	
 			width: 300px;
-	}
+		}
+		.tabulator-ul li:last-child>div{
+			border-bottom: 1px solid #C51F00;
+		}
 }
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 		.tabulator-wrapper {
 			width: 300px;
-	}
+		}
+		.tabulator-ul li:last-child>div{
+			border-bottom: 1px solid #C51F00;
+		}
 }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.tabulator-ul li:last-child>div{
+		border-bottom: 1px solid #C51F00;
+	}
 	.details-body-description {
 		width: 360px;
 		/* margin: 0 auto; */
