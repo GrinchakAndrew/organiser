@@ -5,7 +5,6 @@ var Accordeon = function (wrapper, numberOfTitles, titlesHeight, tabsNumberByKey
     this.titlesHeight = titlesHeight || 30;
 	this.tabsNumberByKey = tabsNumberByKey;
 }
-
 Accordeon.prototype.scroller = function () {
   var config = {
     mousewheelEvt: (/Firefox/i.test(navigator.userAgent)) ? 'DOMMouseScroll' : 'mousewheel',
@@ -150,7 +149,6 @@ Accordeon.prototype.scroller = function () {
 		}
   });
 };
-
 Accordeon.prototype.build = function (taskNames) {
     'use strict';
     var that = this,
@@ -184,7 +182,6 @@ Accordeon.prototype.build = function (taskNames) {
     detailsBodyPre: !$('.details-body-pre').length ? $('<pre>', {
       class: 'details-body-pre'
     })  : $('.details-body-pre'),
-	
     detailsBodyCode: !$('.details-body-code').length ? $('<code>', {
       class: 'details-body-code prettyprint lang-js linenums'
     })  : $('.details-body-code'),
@@ -366,7 +363,6 @@ Accordeon.prototype.build = function (taskNames) {
 								}else {
 									subParents[subParent].append(_this.title.clone().css("padding-bottom", 8 + 'px').css('padding-left', 8 + 'px').css('padding-top', 8 + 'px').append(_this.subParentArrowRight.clone().css('margin-left', '15px')).append(_this.span.clone().text(subParent).addClass('series')));
 								}
-								
                             } else if (({}).toString.call(arr[i]) === '[object Array]') {
                                 if (subParent) {
                                     if (!children[subParent]) {
@@ -429,7 +425,6 @@ Accordeon.prototype.build = function (taskNames) {
                     _subRoutine();
                 }
             },
-			
 			uncollapseAll : function(_t) {			
 				if(!$('.collapsible').length) {
 					$('.title:first .subparentarrowright').after(_t.collapsible);
@@ -478,12 +473,10 @@ Accordeon.prototype.build = function (taskNames) {
                 that.wrapper.append(this.leftRightContainer);
                 $('.left-right-container').append(this.titlesColumnLeft);
                 $('.left-right-container').append(this.detailsBody);
-				
 				this.detailsBody.append(this.detailsBodyEntrails);
 				this.detailsBodyEntrails.append(this.detailsBodyPre);
 				this.detailsBodyPre.append(this.detailsBodyCode);
                 this.detailsBody.append(this.detailsBodyDescription);
-				
                 if (that.numberOfTitles) {
                     var __length = taskNames.length;
                     for (var i = 0; i < __length; i += 1) {
@@ -499,7 +492,6 @@ Accordeon.prototype.build = function (taskNames) {
         };
     elements.fn();
 }
-
 Accordeon.prototype.tabulator = function (tabsNum, tabsNames, jsonObject, clickedTitleText) {
     'use strict';
     var that = this,
@@ -565,7 +557,6 @@ Accordeon.prototype.tabulator = function (tabsNum, tabsNames, jsonObject, clicke
 
 					  return w;
 				}
-
                 while (this._i--) {
                     this.ul.append(this.li.clone().append(this.div.clone().append(this.span.clone().text(tabsNames[this._i]))));
 					var text = $('.tabulator-div').last().text();
@@ -575,10 +566,9 @@ Accordeon.prototype.tabulator = function (tabsNum, tabsNames, jsonObject, clicke
                         this.arrOverflowingTabsWidth += $('.tabulator-div').last().outerWidth();
                     }
                 }
-				
                 $(this.arrOverflowingTabs).each(function () {
                     $(this).css('display', 'none');
-                })
+                });
             },
             scrollingArrows: function () {
                 if (!$('.scrolling-right').length) {
@@ -837,7 +827,6 @@ Accordeon.prototype.tabulator = function (tabsNum, tabsNames, jsonObject, clicke
                         'border-style': ''
                     });
 				}
-				
                 });
                 var _this = this,
                     eventName;
@@ -847,7 +836,6 @@ Accordeon.prototype.tabulator = function (tabsNum, tabsNames, jsonObject, clicke
                     eventName = 'mousedown';
                 }
 				_this.buildTabs();
-				console.log('buildTabs');
                 if (this.tabsOverallWidth > $('.tabulator-wrapper').outerWidth()) {
                     _this.scrollingArrows();
                     _this.overFlow(_this.arrOverflowingTabs);
@@ -1085,9 +1073,7 @@ $('document').ready(function () {
       prettyPrint();
     }
   });
-
   $('body').on('post', function (e, jsonObject) {
-	  console.log('post');
         var tabsNumberByKey = getTabsNumber(jsonObject),
             tasksNumber = (function () {
                 var returnable = 0;
@@ -1107,10 +1093,7 @@ $('document').ready(function () {
 			accordeon.build(taskNames);
 			accordeon.scroller();
 			var clicks = 0;
-		
-		
         $('.title').on(eventName, function (e) {
-			debugger;
             'use strict';
             tabsNames = [];
             $('body').trigger('title-change');
